@@ -24,26 +24,22 @@
    <constructor-arg  index="1" value="20"></constructor-arg>
    </bean>
    
-   <!-- dependency objects dependent on Point objects and inner beans-->
+   <!-- dependency objects dependent on Point objects -->
    <bean id="objecttriangle" class="org.soumitra.jetbrains.koushik.ObjectTriangle">
    	<property name="pointA" ref="zeroPoint"></property>
-   	<property name="pointB" >
-   		<bean class="org.soumitra.jetbrains.koushik.Point">
-		   	<property name="x" value="20"></property>
-		   	<property name="y" value="0"></property>
-	  	 </bean>
-   	</property>
-   	<property name="pointC">
-   		<bean class="org.soumitra.jetbrains.koushik.Point">
-		   	<property name="x" value="-20"></property>
-		   	<property name="y" value="0"></property>
-	   </bean>
-   	</property>
+   	<property name="pointB" ref="pointA"></property>
+   	<property name="pointC" ref="pointB"></property>
    </bean>
    <bean id="zeroPoint" class="org.soumitra.jetbrains.koushik.Point">
    	<property name="x" value="0"></property>
    	<property name="y" value="50"></property>
    </bean>
-   <alias name="zeroPoint" alias="zeroPoint-another-name"/>
-   
+   <bean id="pointA" class="org.soumitra.jetbrains.koushik.Point">
+   	<property name="x" value="20"></property>
+   	<property name="y" value="0"></property>
+   </bean>
+   <bean id="pointB" class="org.soumitra.jetbrains.koushik.Point">
+   	<property name="x" value="-20"></property>
+   	<property name="y" value="0"></property>
+   </bean>
 </beans>
