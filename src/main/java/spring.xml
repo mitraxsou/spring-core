@@ -1,0 +1,45 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <bean id = "triangle" class = "org.soumitra.jetbrains.koushik.Triangle" >
+    
+   </bean>
+	<bean id = "nicetriangle" class = "org.soumitra.jetbrains.koushik.Triangle" >
+    <property name="type" value="nice"/>
+   </bean>
+   <bean id= "constructortriangle" class="org.soumitra.jetbrains.koushik.ConstructorTriangle">
+   <constructor-arg  value="20"></constructor-arg>
+   </bean>
+   
+    <bean id= "typeconstructortriangle" class="org.soumitra.jetbrains.koushik.ConstructorTriangle">
+   <constructor-arg  type="int" value="20"></constructor-arg>
+   </bean>
+   <!-- calling parameterized constructor -->
+   <bean id= "indexconstructortriangle" class="org.soumitra.jetbrains.koushik.ConstructorTriangle">
+   <constructor-arg  index="0" value="string"></constructor-arg>
+   <constructor-arg  index="1" value="20"></constructor-arg>
+   </bean>
+   
+   <!-- dependency objects dependent on Point objects -->
+   <bean id="objecttriangle" class="org.soumitra.jetbrains.koushik.ObjectTriangle">
+   	<property name="pointA" ref="zeroPoint"></property>
+   	<property name="pointB" ref="pointA"></property>
+   	<property name="pointC" ref="pointB"></property>
+   </bean>
+   <bean id="zeroPoint" class="org.soumitra.jetbrains.koushik.Point">
+   	<property name="x" value="0"></property>
+   	<property name="y" value="50"></property>
+   </bean>
+   <bean id="pointA" class="org.soumitra.jetbrains.koushik.Point">
+   	<property name="x" value="20"></property>
+   	<property name="y" value="0"></property>
+   </bean>
+   <bean id="pointB" class="org.soumitra.jetbrains.koushik.Point">
+   	<property name="x" value="-20"></property>
+   	<property name="y" value="0"></property>
+   </bean>
+</beans>
