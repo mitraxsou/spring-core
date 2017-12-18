@@ -42,8 +42,31 @@
    </bean>
    <bean id="zeroPoint" class="org.soumitra.jetbrains.koushik.Point">
    	<property name="x" value="0"></property>
-   	<property name="y" value="50"></property>
+   	<property name="y" value="0"></property>
    </bean>
    <alias name="zeroPoint" alias="zeroPoint-another-name"/>
    
+   <!-- creating list dependecy for TriangleList class -->
+   <bean id="newPoint" class="org.soumitra.jetbrains.koushik.Point">
+		   	<property name="x" value="20"></property>
+		   	<property name="y" value="10"></property>
+	</bean>
+	<bean id="newPoint1" class="org.soumitra.jetbrains.koushik.Point">
+		   	<property name="x" value="202"></property>
+		   	<property name="y" value="10"></property>
+	</bean>
+	<bean id="newPoint2" class="org.soumitra.jetbrains.koushik.Point">
+		   	<property name="x" value="2210"></property>
+		   	<property name="y" value="10"></property>
+	</bean>
+   <bean id="triangleList" class="org.soumitra.jetbrains.koushik.TriangleList">
+   		<property name="points">
+   			<list>
+   				<ref bean="zeroPoint"/>
+   				<ref bean="newPoint1"/>
+   				<ref bean="newPoint2"/>
+   			</list>
+   		</property>
+   
+   </bean>
 </beans>

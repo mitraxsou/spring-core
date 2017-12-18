@@ -30,6 +30,9 @@ public class DrawingApp {
 		
 		ObjectTriangle objectTriangle = (ObjectTriangle) context.getBean("objecttriangle");
 		objectTriangle.draw();
+		
+		TriangleList triangleList= (TriangleList) context.getBean("triangleList");
+		triangleList.draw();
 	
 	}
 
